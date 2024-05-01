@@ -1,0 +1,286 @@
+processor	:  0
+vendor_id	:  AuthenticAMD
+cpu family	:  23
+model		:  104
+model name	:  AMD Ryzen 3 5300U with Radeon Graphics
+stepping	:  1
+microcode	:  0x8608102
+cpu MHz		:  2391.584
+cache size	:  512 KB
+physical id	:  0
+siblings	:  8
+core id		:  0
+cpu cores	:  4
+apicid		:  0
+initial apicid	:  0
+fpu		:  yes
+fpu_exception	:  yes
+cpuid level	:  16
+wp		:  yes
+flags		:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip rdpid overflow_recov succor smca
+bugs		:  sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass retbleed smt_rsb srso
+bogomips	:  5190.40
+TLB size	:  3072 4K pages
+clflush size	:  64
+cache_alignment	:  64
+address sizes	:  48 bits physical, 48 bits virtual
+power management:  ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+: (null)
+processor	:  1
+vendor_id	:  AuthenticAMD
+cpu family	:  23
+model		:  104
+model name	:  AMD Ryzen 3 5300U with Radeon Graphics
+stepping	:  1
+microcode	:  0x8608102
+cpu MHz		:  2400.957
+cache size	:  512 KB
+physical id	:  0
+siblings	:  8
+core id		:  0
+cpu cores	:  4
+apicid		:  1
+initial apicid	:  1
+fpu		:  yes
+fpu_exception	:  yes
+cpuid level	:  16
+wp		:  yes
+flags		:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip rdpid overflow_recov succor smca
+bugs		:  sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass retbleed smt_rsb srso
+bogomips	:  5190.40
+TLB size	:  3072 4K pages
+clflush size	:  64
+cache_alignment	:  64
+address sizes	:  48 bits physical, 48 bits virtual
+power management:  ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+: (null)
+processor	:  2
+vendor_id	:  AuthenticAMD
+cpu family	:  23
+model		:  104
+model name	:  AMD Ryzen 3 5300U with Radeon Graphics
+stepping	:  1
+microcode	:  0x8608102
+cpu MHz		:  3885.960
+cache size	:  512 KB
+physical id	:  0
+siblings	:  8
+core id		:  1
+cpu cores	:  4
+apicid		:  2
+initial apicid	:  2
+fpu		:  yes
+fpu_exception	:  yes
+cpuid level	:  16
+wp		:  yes
+flags		:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip rdpid overflow_recov succor smca
+bugs		:  sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass retbleed smt_rsb srso
+bogomips	:  5190.40
+TLB size	:  3072 4K pages
+clflush size	:  64
+cache_alignment	:  64
+address sizes	:  48 bits physical, 48 bits virtual
+power management:  ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+: (null)
+processor	:  3
+vendor_id	:  AuthenticAMD
+cpu family	:  23
+model		:  104
+model name	:  AMD Ryzen 3 5300U with Radeon Graphics
+stepping	:  1
+microcode	:  0x8608102
+cpu MHz		:  3889.223
+cache size	:  512 KB
+physical id	:  0
+siblings	:  8
+core id		:  1
+cpu cores	:  4
+apicid		:  3
+initial apicid	:  3
+fpu		:  yes
+fpu_exception	:  yes
+cpuid level	:  16
+wp		:  yes
+flags		:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip rdpid overflow_recov succor smca
+bugs		:  sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass retbleed smt_rsb srso
+bogomips	:  5190.40
+TLB size	:  3072 4K pages
+clflush size	:  64
+cache_alignment	:  64
+address sizes	:  48 bits physical, 48 bits virtual
+power management:  ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+: (null)
+processor	:  4
+vendor_id	:  AuthenticAMD
+cpu family	:  23
+model		:  104
+model name	:  AMD Ryzen 3 5300U with Radeon Graphics
+stepping	:  1
+microcode	:  0x8608102
+cpu MHz		:  3686.249
+cache size	:  512 KB
+physical id	:  0
+siblings	:  8
+core id		:  2
+cpu cores	:  4
+apicid		:  4
+initial apicid	:  4
+fpu		:  yes
+fpu_exception	:  yes
+cpuid level	:  16
+wp		:  yes
+flags		:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip rdpid overflow_recov succor smca
+bugs		:  sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass retbleed smt_rsb srso
+bogomips	:  5190.40
+TLB size	:  3072 4K pages
+clflush size	:  64
+cache_alignment	:  64
+address sizes	:  48 bits physical, 48 bits virtual
+power management:  ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+: (null)
+processor	:  5
+vendor_id	:  AuthenticAMD
+cpu family	:  23
+model		:  104
+model name	:  AMD Ryzen 3 5300U with Radeon Graphics
+stepping	:  1
+microcode	:  0x8608102
+cpu MHz		:  2832.008
+cache size	:  512 KB
+physical id	:  0
+siblings	:  8
+core id		:  2
+cpu cores	:  4
+apicid		:  5
+initial apicid	:  5
+fpu		:  yes
+fpu_exception	:  yes
+cpuid level	:  16
+wp		:  yes
+flags		:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip rdpid overflow_recov succor smca
+bugs		:  sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass retbleed smt_rsb srso
+bogomips	:  5190.40
+TLB size	:  3072 4K pages
+clflush size	:  64
+cache_alignment	:  64
+address sizes	:  48 bits physical, 48 bits virtual
+power management:  ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+: (null)
+processor	:  6
+vendor_id	:  AuthenticAMD
+cpu family	:  23
+model		:  104
+model name	:  AMD Ryzen 3 5300U with Radeon Graphics
+stepping	:  1
+microcode	:  0x8608102
+cpu MHz		:  3889.233
+cache size	:  512 KB
+physical id	:  0
+siblings	:  8
+core id		:  3
+cpu cores	:  4
+apicid		:  6
+initial apicid	:  6
+fpu		:  yes
+fpu_exception	:  yes
+cpuid level	:  16
+wp		:  yes
+flags		:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip rdpid overflow_recov succor smca
+bugs		:  sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass retbleed smt_rsb srso
+bogomips	:  5190.40
+TLB size	:  3072 4K pages
+clflush size	:  64
+cache_alignment	:  64
+address sizes	:  48 bits physical, 48 bits virtual
+power management:  ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+: (null)
+processor	:  7
+vendor_id	:  AuthenticAMD
+cpu family	:  23
+model		:  104
+model name	:  AMD Ryzen 3 5300U with Radeon Graphics
+stepping	:  1
+microcode	:  0x8608102
+cpu MHz		:  3889.212
+cache size	:  512 KB
+physical id	:  0
+siblings	:  8
+core id		:  3
+cpu cores	:  4
+apicid		:  7
+initial apicid	:  7
+fpu		:  yes
+fpu_exception	:  yes
+cpuid level	:  16
+wp		:  yes
+flags		:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip rdpid overflow_recov succor smca
+bugs		:  sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass retbleed smt_rsb srso
+bogomips	:  5190.40
+TLB size	:  3072 4K pages
+clflush size	:  64
+cache_alignment	:  64
+address sizes	:  48 bits physical, 48 bits virtual
+power management:  ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+: (null)
+MemTotal:         7458676 kB
+MemFree:           262900 kB
+MemAvailable:     1259388 kB
+Buffers:            39628 kB
+Cached:           1768740 kB
+SwapCached:         81344 kB
+Active:           1707360 kB
+Inactive:         4294496 kB
+Active(anon):      972264 kB
+Inactive(anon):   3859160 kB
+Active(file):      735096 kB
+Inactive(file):    435336 kB
+Unevictable:           32 kB
+Mlocked:               32 kB
+SwapTotal:        1000444 kB
+SwapFree:           41744 kB
+Zswap:                  0 kB
+Zswapped:               0 kB
+Dirty:              24684 kB
+Writeback:              0 kB
+AnonPages:        3927384 kB
+Mapped:           1382124 kB
+Shmem:             637936 kB
+KReclaimable:       87272 kB
+Slab:              200512 kB
+SReclaimable:       87272 kB
+SUnreclaim:        113240 kB
+KernelStack:        17168 kB
+PageTables:         56788 kB
+SecPageTables:          0 kB
+NFS_Unstable:           0 kB
+Bounce:                 0 kB
+WritebackTmp:           0 kB
+CommitLimit:      4729780 kB
+Committed_AS:    13031576 kB
+VmallocTotal:    34359738367 kB
+VmallocUsed:        60724 kB
+VmallocChunk:           0 kB
+Percpu:             11008 kB
+HardwareCorrupted:      0 kB
+AnonHugePages:     692224 kB
+ShmemHugePages:         0 kB
+ShmemPmdMapped:         0 kB
+FileHugePages:          0 kB
+FilePmdMapped:          0 kB
+HugePages_Total:        0
+HugePages_Free:         0
+HugePages_Rsvd:         0
+HugePages_Surp:         0
+Hugepagesize:        2048 kB
+Hugetlb:                0 kB
+DirectMap4k:      3273680 kB
+DirectMap2M:      4438016 kB
+DirectMap1G:      1048576 kB

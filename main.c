@@ -2,71 +2,78 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <process.h>
-#include <time.h>
 
 #define COUNTS_OF_CLIENT 5
 
 int temperature = 0;
 HANDLE mutex;
 
-void client(void* q) {
-    HANDLE file = CreateFile(TEXT("C:\\tmp.txt"), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+void* client(void* q) {
+    HANDLE file = CreateFileA("C:\\tmp.txt", GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
     if (file == INVALID_HANDLE_VALUE) {
-        printf("Error opening file. Error code: %d\n", GetLastError());
-        return;
+        fprintf(stderr, "Error opening file: %lu\n", GetLastError());
+        return NULL;
     }
-    int* data;
-    DWORD fileSize = GetFileSize(file, NULL);
-    HANDLE fileMapping = CreateFileMapping(file, NULL, PAGE_READONLY, 0, 0, NULL);
-    if (fileMapping == NULL) {
-        printf("Error creating file mapping. Error code: %d\n", GetLastError());
+
+    HANDLE mapFile = CreateFileMapping(file, NULL, PAGE_READONLY, 0, sizeof(int), NULL);
+    if (mapFile == NULL) {
+        fprintf(stderr, "Error creating file mapping: %lu\n", GetLastError());
         CloseHandle(file);
-        return;
+        return NULL;
     }
-    data = (int*)MapViewOfFile(fileMapping, FILE_MAP_READ, 0, 0, 0);
+
+    int* data = (int*)MapViewOfFile(mapFile, FILE_MAP_READ, 0, 0, sizeof(int));
     if (data == NULL) {
-        printf("Error mapping view of file. Error code: %d\n", GetLastError());
-        CloseHandle(fileMapping);
+        fprintf(stderr, "Error mapping view of file: %lu\n", GetLastError());
+        CloseHandle(mapFile);
         CloseHandle(file);
-        return;
+        return NULL;
     }
-    CloseHandle(fileMapping);
+
     CloseHandle(file);
+
     while (1) {
         WaitForSingleObject(mutex, INFINITE);
         if (*data < 0) {
             ReleaseMutex(mutex);
-            return;
+            return NULL;
         }
-        printf("Temperature is equal to %d\n", *data);
+        printf("temperature is equal to %d\n", *data);
         ReleaseMutex(mutex);
         Sleep(1000);
     }
+
+    UnmapViewOfFile(data);
+    CloseHandle(mapFile);
+
+    return NULL;
 }
 
-void server(void* q) {
-    HANDLE file = CreateFile(TEXT("C:\\tmp.txt"), GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+void* server(void* q) {
+    HANDLE file = CreateFileA("C:\\tmp.txt", GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
     if (file == INVALID_HANDLE_VALUE) {
-        printf("Error opening file. Error code: %d\n", GetLastError());
-        return;
+        fprintf(stderr, "Error opening file: %lu\n", GetLastError());
+        return NULL;
     }
-    HANDLE fileMapping = CreateFileMapping(file, NULL, PAGE_READWRITE, 0, sizeof(int), NULL);
-    if (fileMapping == NULL) {
-        printf("Error creating file mapping. Error code: %d\n", GetLastError());
+
+    HANDLE mapFile = CreateFileMapping(file, NULL, PAGE_READWRITE, 0, sizeof(int), NULL);
+    if (mapFile == NULL) {
+        fprintf(stderr, "Error creating file mapping: %lu\n", GetLastError());
         CloseHandle(file);
-        return;
+        return NULL;
     }
-    int* data = (int*)MapViewOfFile(fileMapping, FILE_MAP_WRITE, 0, 0, 0);
+
+    int* data = (int*)MapViewOfFile(mapFile, FILE_MAP_ALL_ACCESS, 0, 0, sizeof(int));
     if (data == NULL) {
-        printf("Error mapping view of file. Error code: %d\n", GetLastError());
-        CloseHandle(fileMapping);
+        fprintf(stderr, "Error mapping view of file: %lu\n", GetLastError());
+        CloseHandle(mapFile);
         CloseHandle(file);
-        return;
+        return NULL;
     }
-    CloseHandle(fileMapping);
+
     CloseHandle(file);
+
     *data = 50;
-    srand((unsigned int)time(NULL));
     while (*data >= 0) {
         WaitForSingleObject(mutex, INFINITE);
         printf("Server sets temperature %d\n", *data);
@@ -74,28 +81,37 @@ void server(void* q) {
         ReleaseMutex(mutex);
         Sleep(1000);
     }
+
+    UnmapViewOfFile(data);
+    CloseHandle(mapFile);
+
+    return NULL;
 }
 
 int main(int argc, const char* argv[]) {
     mutex = CreateMutex(NULL, FALSE, NULL);
     if (mutex == NULL) {
-        printf("Error creating mutex. Error code: %d\n", GetLastError());
+        fprintf(stderr, "Error creating mutex: %lu\n", GetLastError());
         return 1;
     }
+
     HANDLE clientThreads[COUNTS_OF_CLIENT];
     HANDLE serverThread;
-    unsigned int threadID;
 
-    serverThread = (HANDLE)_beginthreadex(NULL, 0, (_beginthreadex_proc_type)server, NULL, 0, &threadID);
+    unsigned int threadId;
+
+    serverThread = (HANDLE)_beginthreadex(NULL, 0, server, NULL, 0, &threadId);
     if (serverThread == NULL) {
-        printf("Error creating server thread. Error code: %d\n", GetLastError());
+        fprintf(stderr, "Error creating server thread\n");
+        CloseHandle(mutex);
         return 1;
     }
 
     for (int i = 0; i < COUNTS_OF_CLIENT; i++) {
-        clientThreads[i] = (HANDLE)_beginthreadex(NULL, 0, (_beginthreadex_proc_type)client, NULL, 0, &threadID);
+        clientThreads[i] = (HANDLE)_beginthreadex(NULL, 0, client, NULL, 0, &threadId);
         if (clientThreads[i] == NULL) {
-            printf("Error creating client thread %d. Error code: %d\n", i, GetLastError());
+            fprintf(stderr, "Error creating client thread %d\n", i);
+            CloseHandle(mutex);
             return 1;
         }
     }
@@ -104,10 +120,6 @@ int main(int argc, const char* argv[]) {
     WaitForSingleObject(serverThread, INFINITE);
 
     CloseHandle(mutex);
-    for (int i = 0; i < COUNTS_OF_CLIENT; i++) {
-        CloseHandle(clientThreads[i]);
-    }
-    CloseHandle(serverThread);
 
     return 0;
 }

@@ -9,7 +9,7 @@ int temperature = 0;
 HANDLE mutex;
 
 void* client(void* q) {
-    HANDLE file = CreateFileA("C:\\tmp.txt", GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+    HANDLE file = CreateFileA("C:\\Users\\user\\Desktop\\OS\\tmp.txt", GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
     if (file == INVALID_HANDLE_VALUE) {
         fprintf(stderr, "Error opening file: %lu\n", GetLastError());
         return NULL;
@@ -50,7 +50,7 @@ void* client(void* q) {
 }
 
 void* server(void* q) {
-    HANDLE file = CreateFileA("C:\\tmp.txt", GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+    HANDLE file = CreateFileA("C:\\Users\\user\\Desktop\\OS\\tmp.txt", GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
     if (file == INVALID_HANDLE_VALUE) {
         fprintf(stderr, "Error opening file: %lu\n", GetLastError());
         return NULL;

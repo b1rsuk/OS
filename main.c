@@ -1,51 +1,81 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <pthread.h>
 #include <fcntl.h>
-#include <sys/types.h>
-#include <sys/stat.h>
+#include <sys/mman.h>
 #include <unistd.h>
-#define MAX_FILENAME_LENGTH 256
-#define MAX_BUFFER_LENGTH 256
-int state = 1;
-char filename[MAX_FILENAME_LENGTH];
-char filedata[MAX_BUFFER_LENGTH];
-void outvector(char *outstring){
-    printf("%s\n", outstring);
-}
-void* server(void* p){
-    int fd_fifo;
-    char buf[MAX_BUFFER_LENGTH];
-    if((fd_fifo=open(filename, O_RDWR)) == - 1){
-        strcat(filedata, "Direction isn't correct\n");
+#include <errno.h>
+
+#define COUNTS_OF_CLIENT 5
+
+int temperature = 0;
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+
+void* client(void* q){
+    int file = open("/home/borsuk/Documents/lnu/os/aaaablyt/os/tmp.txt", O_RDONLY);
+    if (file == -1) {
+        perror("open");
         return NULL;
     }
-    if(read(fd_fifo, &buf, sizeof(buf)) == -1)
-        fprintf(stderr, "Can’t be read from FIFO\n");
-    else
-        printf("Read from FIFO : %s\n",buf);
-    return NULL;
-}
-void* client(void* q){
-    printf("Enter exit if you wanna end program\n\n");
-    while(state){
-        printf("Please enter file name or exit: ");
-        scanf("%s", filename);
-        server(&filename);
-        if(strcmp(filename, "exit") == 0)
-            state = 0;
-        else{
-            pthread_t takedata;
-            pthread_create(&takedata, NULL, server, NULL);
-            pthread_join(takedata, NULL);
+    int* data = (int*)mmap(0, sizeof(int), PROT_READ, MAP_SHARED, file, 0);
+    if (data == MAP_FAILED) {
+        perror("mmap");
+        close(file);
+        return NULL;
+    }
+    close(file);
+    while (1) {
+        pthread_mutex_lock(&mutex);
+        if (*data < 0) {
+            pthread_mutex_unlock(&mutex);
+            return NULL;
         }
+        printf("temperature is equal to %d\n", *data);
+        pthread_mutex_unlock(&mutex);
+        sleep(1);
     }
     return NULL;
 }
+
+void* server(void* q){
+    int file = open("/home/borsuk/Documents/lnu/os/aaaablyt/os/tmp.txt", O_RDWR | O_CREAT, 0644);
+    if (file == -1) {
+        perror("open");
+        return NULL;
+    }
+    if (ftruncate(file, sizeof(int)) == -1) {
+        perror("ftruncate");
+        close(file);
+        return NULL;
+    }
+    int* data = (int*)mmap(0, sizeof(int), PROT_READ | PROT_WRITE, MAP_SHARED, file, 0);
+    if (data == MAP_FAILED) {
+        perror("mmap");
+        close(file);
+        return NULL;
+    }
+    close(file);
+    *data = 50;
+    while (*data >= 0) {
+        pthread_mutex_lock(&mutex);
+        printf("Server sets temperature %d\n", *data);
+        *data = -10 + rand() % 50;
+        pthread_mutex_unlock(&mutex);
+        sleep(1);
+    }
+    return NULL;
+}
+
 int main(int argc, const char * argv[]) {
-    pthread_t thread;
-    pthread_create(&thread, NULL, client, NULL);
-    pthread_join(thread, NULL);
+    pthread_t client_threads[COUNTS_OF_CLIENT];
+    pthread_t server_thread;
+    pthread_create(&server_thread, NULL, server, NULL);
+    for (int i = 0;  i < COUNTS_OF_CLIENT; i++) {
+        pthread_create(&client_threads[i], NULL, client, NULL);
+    }
+    for (int i = 0;  i < COUNTS_OF_CLIENT; i++) {
+        pthread_join(client_threads[i], NULL);
+    }
+    pthread_join(server_thread, NULL);
     return 0;
 }
